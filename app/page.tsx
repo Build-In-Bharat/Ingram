@@ -11,7 +11,7 @@ import Footer from "@/components/footer/page";
 
 export default function Home() {
   return (
-    <main className="">
+    <main className="bg-background" vaul-drawer-wrapper="">
       <Navbar />
       <First />
       <Second />
