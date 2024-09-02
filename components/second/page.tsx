@@ -11,6 +11,7 @@ import { useForm, Controller } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { z } from 'zod';
 import { formSchema } from '@/lib/validation';
+import { useFormStore } from '@/lib/store'; // Import the Zustand store
 
 const Second: React.FC = () => {
   const [isDialogOpen, setIsDialogOpen] = useState(false);
@@ -18,12 +19,19 @@ const Second: React.FC = () => {
     resolver: zodResolver(formSchema)
   });
 
+  const { formData, setFormData } = useFormStore(); // Get Zustand store data and setter
+
   const toggleDialog = () => {
     setIsDialogOpen(!isDialogOpen);
   };
 
   const onSubmit = (data: any) => {
     console.log(data);
+  };
+
+  // Update Zustand store on form field change
+  const handleInputChange = (field: string, value: any) => {
+    setFormData({ [field]: value });
   };
 
   return (
@@ -45,7 +53,7 @@ const Second: React.FC = () => {
             </h2>
             <Dialog open={isDialogOpen} onOpenChange={toggleDialog}>
               <DialogTrigger asChild>
-                <Button className="bg-blue-600 hover:bg-blue-500 text-white font-semibold py-6 px-6 rounded-md shadow-md text-lg transition-all">
+                <Button className="bg-blue-600 hover:bg-blue-500 text-white font-semibold py-6 px-6 rounded shadow-md text-lg transition-all">
                   Download Guide
                 </Button>
               </DialogTrigger>
@@ -60,6 +68,8 @@ const Second: React.FC = () => {
                       <Input
                         type="text"
                         {...register('name')}
+                        value={formData.name}
+                        onChange={(e) => handleInputChange('name', e.target.value)}
                         className="mt-1 block w-full px-3 py-2 border border-gray-700 bg-[#010B1A] text-white rounded-xl shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
                       />
                       {errors.name && <p className="text-red-500">{String(errors.name.message)}</p>}
@@ -69,6 +79,8 @@ const Second: React.FC = () => {
                       <Input
                         type="text"
                         {...register('designation')}
+                        value={formData.designation}
+                        onChange={(e) => handleInputChange('designation', e.target.value)}
                         className="mt-1 block w-full px-3 py-2 border border-gray-700 bg-[#010B1A] text-white rounded-xl shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
                       />
                       {errors.designation && <p className="text-red-500">{String(errors.designation.message)}</p>}
@@ -78,6 +90,8 @@ const Second: React.FC = () => {
                       <Input
                         type="email"
                         {...register('email')}
+                        value={formData.email}
+                        onChange={(e) => handleInputChange('email', e.target.value)}
                         className="mt-1 block w-full px-3 py-2 border border-gray-700 bg-[#010B1A] text-white rounded-xl shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
                       />
                       {errors.email && <p className="text-red-500">{String(errors.email.message)}</p>}
@@ -87,6 +101,8 @@ const Second: React.FC = () => {
                       <Input
                         type="text"
                         {...register('organization')}
+                        value={formData.organization}
+                        onChange={(e) => handleInputChange('organization', e.target.value)}
                         className="mt-1 block w-full px-3 py-2 border border-gray-700 bg-[#010B1A] text-white rounded-xl shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
                       />
                       {errors.organization && <p className="text-red-500">{String(errors.organization.message)}</p>}
@@ -98,8 +114,11 @@ const Second: React.FC = () => {
                         control={control}
                         render={({ field }) => (
                           <Select
-                            value={field.value}
-                            onValueChange={(value) => field.onChange(value)}
+                            value={formData.organizationSize}
+                            onValueChange={(value) => {
+                              field.onChange(value);
+                              handleInputChange('organizationSize', value);
+                            }}
                           >
                             <SelectTrigger className="mt-1 block w-full px-3 py-2 border border-gray-700 bg-[#010B1A] text-white rounded-xl shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm">
                               <SelectValue placeholder="Select size" />
@@ -123,8 +142,11 @@ const Second: React.FC = () => {
                         control={control}
                         render={({ field }) => (
                           <Select
-                            value={field.value}
-                            onValueChange={(value) => field.onChange(value)}
+                            value={formData.upgradePlan}
+                            onValueChange={(value) => {
+                              field.onChange(value);
+                              handleInputChange('upgradePlan', value);
+                            }}
                           >
                             <SelectTrigger className="mt-1 block w-full px-3 py-2 border border-gray-700 bg-[#010B1A] text-white rounded-xl shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm">
                               <SelectValue placeholder="Select plan" />
@@ -147,9 +169,12 @@ const Second: React.FC = () => {
                         render={({ field }) => (
                           <Checkbox
                             {...field}
-                            checked={field.value}
+                            checked={formData.consent}
                             className="mr-2"
-                            onCheckedChange={(checked) => field.onChange(checked === true)}
+                            onCheckedChange={(checked) => {
+                              field.onChange(checked === true);
+                              handleInputChange('consent', checked === true);
+                            }}
                           />
                         )}
                       />

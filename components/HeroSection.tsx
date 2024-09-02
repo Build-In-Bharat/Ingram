@@ -12,6 +12,7 @@ import { Checkbox } from '@/components/ui/checkbox';
 import { ScrollArea } from '@/components/ui/scroll-area';
 import { z } from 'zod';
 import { formSchema } from '@/lib/validation';
+import { useFormStore } from '@/lib/store'; // Import the Zustand store
 
 export default function HeroSection() {
   const [isDialogOpen, setIsDialogOpen] = useState(false);
@@ -19,12 +20,19 @@ export default function HeroSection() {
     resolver: zodResolver(formSchema)
   });
 
+  const { formData, setFormData } = useFormStore(); // Get Zustand store data and setter
+
   const toggleDialog = () => {
     setIsDialogOpen(!isDialogOpen);
   };
 
   const onSubmit = (data: any) => {
     console.log(data);
+  };
+
+  // Update Zustand store on form field change
+  const handleInputChange = (field: string, value: any) => {
+    setFormData({ [field]: value });
   };
 
   return (
@@ -50,12 +58,12 @@ export default function HeroSection() {
           </p>
           <Dialog open={isDialogOpen} onOpenChange={toggleDialog}>
             <DialogTrigger asChild>
-              <button
-                className="bg-blue-600 hover:bg-blue-500 text-white font-semibold py-3 px-6 rounded-md shadow-md text-lg transition-all"
+              <Button
+                className="bg-blue-600 hover:bg-blue-500 text-white font-semibold py-3 px-6 rounded shadow-md text-lg transition-all"
                 onClick={toggleDialog}
               >
                 Contact Us
-              </button>
+              </Button>
             </DialogTrigger>
             <DialogContent className="bg-[#010B1A] text-white border-none rounded-xl">
               <DialogHeader>
@@ -68,6 +76,8 @@ export default function HeroSection() {
                     <Input
                       type="text"
                       {...register('name')}
+                      value={formData.name}
+                      onChange={(e) => handleInputChange('name', e.target.value)}
                       className="mt-1 block w-full px-3 py-2 border border-gray-700 bg-[#010B1A] text-white rounded-xl shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
                     />
                     {errors.name && <p className="text-red-500">{String(errors.name.message)}</p>}
@@ -77,6 +87,8 @@ export default function HeroSection() {
                     <Input
                       type="text"
                       {...register('designation')}
+                      value={formData.designation}
+                      onChange={(e) => handleInputChange('designation', e.target.value)}
                       className="mt-1 block w-full px-3 py-2 border border-gray-700 bg-[#010B1A] text-white rounded-xl shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
                     />
                     {errors.designation && <p className="text-red-500">{String(errors.designation.message)}</p>}
@@ -86,6 +98,8 @@ export default function HeroSection() {
                     <Input
                       type="email"
                       {...register('email')}
+                      value={formData.email}
+                      onChange={(e) => handleInputChange('email', e.target.value)}
                       className="mt-1 block w-full px-3 py-2 border border-gray-700 bg-[#010B1A] text-white rounded-xl shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
                     />
                     {errors.email && <p className="text-red-500">{String(errors.email.message)}</p>}
@@ -95,6 +109,8 @@ export default function HeroSection() {
                     <Input
                       type="text"
                       {...register('organization')}
+                      value={formData.organization}
+                      onChange={(e) => handleInputChange('organization', e.target.value)}
                       className="mt-1 block w-full px-3 py-2 border border-gray-700 bg-[#010B1A] text-white rounded-xl shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
                     />
                     {errors.organization && <p className="text-red-500">{String(errors.organization.message)}</p>}
@@ -106,8 +122,11 @@ export default function HeroSection() {
                       control={control}
                       render={({ field }) => (
                         <Select
-                          value={field.value}
-                          onValueChange={(value) => field.onChange(value)}
+                          value={formData.organizationSize}
+                          onValueChange={(value) => {
+                            field.onChange(value);
+                            handleInputChange('organizationSize', value);
+                          }}
                         >
                           <SelectTrigger className="mt-1 block w-full px-3 py-2 border border-gray-700 bg-[#010B1A] text-white rounded-xl shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm">
                             <SelectValue placeholder="Select size" />
@@ -131,8 +150,11 @@ export default function HeroSection() {
                       control={control}
                       render={({ field }) => (
                         <Select
-                          value={field.value}
-                          onValueChange={(value) => field.onChange(value)}
+                          value={formData.upgradePlan}
+                          onValueChange={(value) => {
+                            field.onChange(value);
+                            handleInputChange('upgradePlan', value);
+                          }}
                         >
                           <SelectTrigger className="mt-1 block w-full px-3 py-2 border border-gray-700 bg-[#010B1A] text-white rounded-xl shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm">
                             <SelectValue placeholder="Select plan" />
@@ -155,9 +177,12 @@ export default function HeroSection() {
                       render={({ field }) => (
                         <Checkbox
                           {...field}
-                          checked={field.value}
+                          checked={formData.consent}
                           className="mr-2"
-                          onCheckedChange={(checked) => field.onChange(checked === true)}
+                          onCheckedChange={(checked) => {
+                            field.onChange(checked === true);
+                            handleInputChange('consent', checked === true);
+                          }}
                         />
                       )}
                     />

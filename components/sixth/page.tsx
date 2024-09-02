@@ -14,7 +14,7 @@ const Sixth: React.FC = () => {
           <img src="/sixth_card.svg" alt="FPO Product Name" className="w-full h-auto object-contain mb-4" />
           <h3 className="font-semibold text-lg mb-2">FPO Product Name</h3>
           <p className="text-sm text-gray-300 mb-6">Product spec, information, and details go here</p>
-          <a href="#" className="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-6 rounded-lg inline-block">
+          <a href="#" className="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-6 rounded-lg inline-block rounded-lg">
             Send Enquiry
           </a>
         </div>
@@ -22,7 +22,7 @@ const Sixth: React.FC = () => {
           <img src="/sixth_card.svg" alt="FPO Product Name" className="w-full h-auto object-contain mb-4" />
           <h3 className="font-semibold text-lg mb-2">FPO Product Name</h3>
           <p className="text-sm text-gray-300 mb-6">Product spec, information, and details go here</p>
-          <a href="#" className="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-6 rounded-lg inline-block">
+          <a href="#" className="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-6 rounded-lg inline-block rounded-lg">
             Send Enquiry
           </a>
         </div>
@@ -30,7 +30,7 @@ const Sixth: React.FC = () => {
           <img src="/sixth_card.svg" alt="FPO Product Name" className="w-full h-auto object-contain mb-4" />
           <h3 className="font-semibold text-lg mb-2">FPO Product Name</h3>
           <p className="text-sm text-gray-300 mb-6">Product spec, information, and details go here</p>
-          <a href="#" className="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-6 rounded-lg inline-block">
+          <a href="#" className="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-6 rounded-lg inline-block rounded-lg">
             Send Enquiry
           </a>
         </div>

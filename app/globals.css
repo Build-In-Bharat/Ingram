@@ -19,6 +19,36 @@
 
   body {
     @apply bg-background text-foreground;
+    overflow: auto;
+    /* Allow scrolling */
+  }
+
+  /* Custom scrollbar styles */
+  ::-webkit-scrollbar {
+    width: 8px;
+    /* Width of the scrollbar */
+    height: 8px;
+    /* Height of the scrollbar */
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background-color: #7b7d84;
+    /* Blue color for the scrollbar thumb */
+    border-radius: 10px;
+    /* Rounded corners for the scrollbar thumb */
+  }
+
+  ::-webkit-scrollbar-track {
+    background: transparent;
+    /* Transparent background for the scrollbar track */
+  }
+
+  /* Firefox scrollbar styles */
+  body {
+    scrollbar-width: thin;
+    /* Make the scrollbar thin */
+    scrollbar-color: #7b7d84 transparent;
+    /* Blue color for the scrollbar thumb and transparent track */
   }
 }
 
