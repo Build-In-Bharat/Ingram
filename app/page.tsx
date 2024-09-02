@@ -1,6 +1,4 @@
 import React from "react";
-import Navbar from "@/components/navbar/page";
-import First from "@/components/First/page";
 import Second from "@/components/second/page";
 import Third from "@/components/Third/page";
 import Fourth from "@/components/fourth/page";
@@ -8,12 +6,12 @@ import Last from "@/components/last/page";
 import Fifth from "@/components/fifth/page";
 import Sixth from "@/components/sixth/page";
 import Footer from "@/components/footer/page";
+import HeroSection from "@/components/HeroSection";
 
 export default function Home() {
   return (
-    <main className="">
-      <Navbar />
-      <First />
+    <main className="m-0 p-0"> {/* Added m-0 p-0 */}
+      <HeroSection />
       <Second />
       <Third />
       <Fourth />

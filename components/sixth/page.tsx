@@ -2,7 +2,7 @@ import React from 'react';
 
 const Sixth: React.FC = () => {
   return (
-    <section className="bg-[#0f172a] text-white py-10">
+    <section className="bg-[#0f172a] text-white py-10 container mx-auto min-w-full">
       <div className="container mx-auto text-center mb-12">
         <p className="text-lg md:text-xl max-w-2xl mx-auto">
           To break new ground, you need ground-breaking devices. Windows 11 Pro devices can accelerate workflows and collaboration 50% on average. With experiences that elevate the potential of everyone on your team.

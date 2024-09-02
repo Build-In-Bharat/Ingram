@@ -1,5 +1,7 @@
 "use client";
 import Image from 'next/image';
+import { Button } from './ui/button';
+import Navbar from './navbar/Navbar';
 import { useState } from 'react';
 import { useForm, Controller } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
@@ -11,7 +13,7 @@ import { ScrollArea } from '@/components/ui/scroll-area';
 import { z } from 'zod';
 import { formSchema } from '@/lib/validation';
 
-const Last: React.FC = () => {
+export default function HeroSection() {
   const [isDialogOpen, setIsDialogOpen] = useState(false);
   const { control, register, handleSubmit, formState: { errors }, setValue } = useForm({
     resolver: zodResolver(formSchema)
@@ -26,15 +28,18 @@ const Last: React.FC = () => {
   };
 
   return (
-    <div className="relative w-full h-screen flex items-center justify-center overflow-hidden container mx-auto min-w-full bg-black">
+    <div className="relative w-full h-screen flex flex-col justify-center overflow-hidden m-0 p-0 bg-black">
       <Image
-        src="/last_comp.jpg"
+        src="/Home_background.svg"
         alt="Background with Laptop"
         layout="fill"
         objectFit="cover"
         priority
         className="z-0"
       />
+      <div className="absolute top-0 left-0 w-full z-10">
+        <Navbar />
+      </div>
       <div className="absolute inset-10 z-10 flex items-center">
         <div className="text-center text-white p-6 max-w-2xl text-justify">
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4 text-customBlue">
@@ -46,7 +51,7 @@ const Last: React.FC = () => {
           <Dialog open={isDialogOpen} onOpenChange={toggleDialog}>
             <DialogTrigger asChild>
               <button
-                className="bg-blue-700 hover:bg-blue-600 text-white font-semibold py-3 px-6 rounded-xl shadow-md text-lg transition-all"
+                className="bg-blue-600 hover:bg-blue-500 text-white font-semibold py-3 px-6 rounded-md shadow-md text-lg transition-all"
                 onClick={toggleDialog}
               >
                 Contact Us
@@ -161,7 +166,7 @@ const Last: React.FC = () => {
                   </div>
                   <button
                     type="submit"
-                    className="bg-blue-700 hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded-xl shadow-md transition-all"
+                    className="bg-blue-600 hover:bg-blue-500 text-white font-semibold py-2 px-4 rounded-md shadow-md transition-all"
                   >
                     Submit
                   </button>
@@ -173,6 +178,4 @@ const Last: React.FC = () => {
       </div>
     </div>
   );
-};
-
-export default Last;
+}

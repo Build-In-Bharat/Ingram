@@ -30,7 +30,7 @@ const Fourth: React.FC = () => {
   ];
 
   return (
-    <section className="bg-[#0f172a] py-16 text-center text-white">
+    <section className="bg-[#0f172a] py-16 text-center text-white container mx-auto min-w-full">
       <div className="container mx-auto px-4">
         <h2 className="text-2xl font-semibold mb-4">How Copilot+ PCs help your business</h2>
         <p className="mb-10 text-lg max-w-3xl mx-auto">

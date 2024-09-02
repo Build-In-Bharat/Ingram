@@ -1,23 +1,24 @@
 import React from 'react';
+import Image from 'next/image';
 
 const Navbar: React.FC = () => {
     return (
         <div>
-            <nav className="bg-transparent fixed w-full z-20 top-0 start-0 h-50px bg-opacity-95">
+            <nav className="relative w-full z-20 h-16 bg-transparent container mx-auto min-w-full">
                 <div className="max-w-7xl mx-auto px-6">
                     <div className="flex justify-between items-center h-16">
                         <div className="flex">
                             <a href="#" className="flex-shrink-0">
-                                <img src="/logo.svg" alt="Logo" className="h-30 w-30" />
+                                <Image src="/logo.svg" alt="Logo" width={150} height={150} />
                             </a>
                         </div>
                         <div className="flex items-center space-x-5">
                             <a href="#" className="flex-shrink-0">
-                                <img src="/windows-11.svg" alt="Windows 11" className="h-30 w-30" />
+                                <Image src="/windows-11.svg" alt="Windows 11" width={200} height={50} />
                             </a>
                             <div className="border-l border-gray-300 h-6"></div>
                             <a href="#" className="flex-shrink-0">
-                                <img src="/microsoft-365.svg" alt="Microsoft 365" className="h-30 w-30" />
+                                <Image src="/office360.png" alt="Microsoft 365" width={160} height={30} />
                             </a>
                         </div>
                         <div className="md:hidden">
