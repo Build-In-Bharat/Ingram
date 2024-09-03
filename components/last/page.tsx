@@ -16,7 +16,7 @@ const Last: React.FC = () => {
         src="/last_comp.png"
         alt="Background with Laptop"
         layout="fill"
-        objectFit="cover"
+        objectFit="fill"
         priority
         className="z-0"
       />

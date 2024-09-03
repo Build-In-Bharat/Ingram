@@ -12,7 +12,7 @@ const Third: React.FC = () => {
   };
 
   return (
-    <div className=" bg-gradient-to-b from-[#010b1a] to-[#06183E] text-white pt-14 font-sans container mx-auto min-w-full">
+    <div className="bg-[#010b1a] text-white pt-14 font-sans container mx-auto min-w-full">
       <div className="max-w-screen mx-auto flex flex-col">
         <div className="mb-8 w-70 text-justify px-24 pb-10 ">
           <div className="text-[#50aed8] font-bold text-4xl mb-4 flex flex-col justify-between gap-3">
@@ -27,30 +27,30 @@ const Third: React.FC = () => {
           </div>
         </div>
 
-        <div className="flex gap-x-12 items-center">
+        <div className="bg-gradient-to-b from-[#010b1a] to-[#06183E] flex gap-x-12 items-center">
           <div className="">
             <Image
               src="/Third_comp.svg"
               alt="Windows 11 Pro laptop"
-              className="w-[40vw] h-full"
-              width={400}
-              height={200}
+              className="w-[30vw] h-auto"
+              width={300}
+              height={150}
             />
           </div>
 
-          <div className="mt-12">
+          <div className="mt-8">
             <div className="flex items-center">
               <Image
                 src="/copilot.svg"
                 alt="Copilot logo"
-                className="w-12 h-12 mr-4"
-                width={80}
-                height={100}
+                className="mr-4"
+                width={40}
+                height={35}
               />
-              <span className="text-3xl font-semibold">Copilot + PC</span>
+              <span className="text-2xl font-semibold">Copilot + PC</span>
             </div>
 
-            <h2 className="text-5xl my-12">A new AI era at work</h2>
+            <h2 className="text-5xl my-10">A new AI era at work</h2>
 
             <p className="mb-4 text-lg mb-6">
               Introducing the world's fastest, most intelligent<br></br>
@@ -64,7 +64,7 @@ const Third: React.FC = () => {
               toggleDialog={toggleDialog}
               buttonText="Download e-book"
               dialogTitle="Download e-book"
-              buttonClassNames="px-3 py-1 mt-8"
+              buttonClassNames="px-3 py-1 mt-6"
             />
           </div>
         </div>

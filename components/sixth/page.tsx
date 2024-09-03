@@ -4,9 +4,9 @@ import { DialogForm } from "../DialogForm";
 
 const cardsData = [
   {
-    imageSrc: "/sixth_card.svg",
-    title: "FPO Product Name",
-    description: "Product spec, information, and details go here",
+    imageSrc: "/Laptop1.avif",
+    title: "Latitude 7455 Laptop",
+    description: "Latitude's first Copilot+ PC powered by Snapdragon® X Series ushers in a new era of AI with game-changing performance and outstanding battery life",
     buttonText: "Send Enquiry",
   },
   {
@@ -33,7 +33,7 @@ const Sixth: React.FC = () => {
   };
 
   return (
-    <section className="bg-[#0f172a] text-white py-10 container mx-auto min-w-full">
+    <section className="bg-[#010b1a] py-14 text-white container mx-auto min-w-full">
       <div className="container mx-auto text-center mb-12">
         <p className="text-lg md:text-lg max-w-3xl mx-auto">
           To break new ground, you need ground-breaking devices. Windows 11 Pro
