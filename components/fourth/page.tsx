@@ -59,10 +59,10 @@ const Fourth: React.FC = () => {
   return (
     <section className="bg-[#010b1a] pt-16 pb-12 text-center text-white">
       <div className="container mx-auto px-4">
-        <h2 className="text-2xl font-semibold mb-4 mt-14">
+        <h2 className="text-5xl font-semibold mb-4 mt-14">
           How Copilot+ PCs help your business
         </h2>
-        <p className="mb-12 text-sm max-w-3xl mx-auto">
+        <p className="mb-12 text-lg max-w-3xl mx-auto">
           Accelerate success with a turbocharged NPU for an unmatched experience
           with lightning speed and smooth performance. Copilot+ PCs bring
           intelligent edge computing to your desktop experience.
@@ -94,7 +94,7 @@ const Fourth: React.FC = () => {
         </div>
       </div>
 
-      <Dialog open={isDialogOpen} onOpenChange={setIsDialogOpen} >
+      <Dialog open={isDialogOpen} onOpenChange={setIsDialogOpen}>
         <DialogOverlay className="fixed inset-0 bg-[#0f172a] bg-opacity-75 flex justify-center items-center z-50">
           <DialogContent className="bg-[#1f2937] p-6 rounded-lg max-w-3xl w-full text-white">
             <ReactPlayer url={currentVideoUrl} controls width="100%" />
