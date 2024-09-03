@@ -1,35 +1,34 @@
-import React, { useEffect } from "react";
+import { Button } from "@/components/ui/button";
+import { Checkbox } from "@/components/ui/checkbox";
 import {
     Dialog,
-    DialogTrigger,
     DialogContent,
     DialogHeader,
-    DialogFooter,
     DialogTitle,
-    DialogClose,
+    DialogTrigger
 } from "@/components/ui/dialog";
 import { Input } from "@/components/ui/input";
+import { ScrollArea } from "@/components/ui/scroll-area";
 import {
     Select,
-    SelectTrigger,
     SelectContent,
     SelectItem,
+    SelectTrigger,
     SelectValue,
 } from "@/components/ui/select";
-import { Checkbox } from "@/components/ui/checkbox";
-import { ScrollArea } from "@/components/ui/scroll-area";
-import { useForm, Controller } from "react-hook-form";
-import { zodResolver } from "@hookform/resolvers/zod";
-import { z } from "zod";
-import { formSchema } from "@/lib/validation";
 import { useFormStore } from "@/lib/store";
-import { Button } from "@/components/ui/button";
+import { cn } from "@/lib/utils";
+import { formSchema } from "@/lib/validation";
+import { zodResolver } from "@hookform/resolvers/zod";
+import React, { useEffect } from "react";
+import { Controller, useForm } from "react-hook-form";
 
 interface DialogFormProps {
     isDialogOpen: boolean;
     toggleDialog: () => void;
     buttonText: string;
     dialogTitle: string;
+    buttonClassNames?: string;
 }
 
 export const DialogForm: React.FC<DialogFormProps> = ({
@@ -37,6 +36,7 @@ export const DialogForm: React.FC<DialogFormProps> = ({
     toggleDialog,
     buttonText,
     dialogTitle,
+    buttonClassNames
 }) => {
     const { formData, setFormData } = useFormStore();
 
@@ -72,7 +72,7 @@ export const DialogForm: React.FC<DialogFormProps> = ({
     return (
         <Dialog open={isDialogOpen} onOpenChange={toggleDialog}>
             <DialogTrigger asChild>
-                <Button className="bg-blue-600 hover:bg-blue-500 text-white font-semibold py-6 px-6 rounded shadow-md text-lg transition-all">
+                <Button className={cn("bg-[#3561FF] hover:bg-[#2749CC] text-white font-semibold py-4 px-4 rounded shadow-md text-lg transition-all", buttonClassNames)}>
                     {buttonText}
                 </Button>
             </DialogTrigger>

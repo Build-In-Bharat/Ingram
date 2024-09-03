@@ -57,12 +57,12 @@ const Fourth: React.FC = () => {
   };
 
   return (
-    <section className="bg-[#0f172a] py-16 text-center text-white">
+    <section className="bg-[#010b1a] py-16 text-center text-white">
       <div className="container mx-auto px-4">
         <h2 className="text-2xl font-semibold mb-4">
           How Copilot+ PCs help your business
         </h2>
-        <p className="mb-10 text-lg max-w-3xl mx-auto">
+        <p className="mb-12 text-sm max-w-3xl mx-auto">
           Accelerate success with a turbocharged NPU for an unmatched experience
           with lightning speed and smooth performance. Copilot+ PCs bring
           intelligent edge computing to your desktop experience.

@@ -19,6 +19,7 @@
 
   body {
     @apply bg-background text-foreground;
+    font-family: "Segoe UI", sans-serif;
     overflow: auto;
     /* Allow scrolling */
   }

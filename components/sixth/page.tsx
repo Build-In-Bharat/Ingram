@@ -1,4 +1,6 @@
-import React from "react";
+"use client";
+import React, { useState } from "react";
+import { DialogForm } from "../DialogForm";
 
 const cardsData = [
   {
@@ -6,25 +8,30 @@ const cardsData = [
     title: "FPO Product Name",
     description: "Product spec, information, and details go here",
     buttonText: "Send Enquiry",
-    buttonLink: "#",
   },
   {
     imageSrc: "/sixth_card.svg",
     title: "FPO Product Name",
     description: "Product spec, information, and details go here",
     buttonText: "Send Enquiry",
-    buttonLink: "#",
   },
   {
     imageSrc: "/sixth_card.svg",
     title: "FPO Product Name",
     description: "Product spec, information, and details go here",
     buttonText: "Send Enquiry",
-    buttonLink: "#",
   },
 ];
 
 const Sixth: React.FC = () => {
+  const [dialogStates, setDialogStates] = useState(cardsData.map(() => false));
+
+  const toggleDialog = (index: number) => {
+    setDialogStates(prevStates =>
+      prevStates.map((state, i) => i === index ? !state : state)
+    );
+  };
+
   return (
     <section className="bg-[#0f172a] text-white py-10 container mx-auto min-w-full">
       <div className="container mx-auto text-center mb-12">
@@ -45,12 +52,12 @@ const Sixth: React.FC = () => {
             />
             <h3 className="font-semibold text-lg mb-2">{card.title}</h3>
             <p className="text-sm text-gray-300 mb-6">{card.description}</p>
-            <a
-              href={card.buttonLink}
-              className="bg-blue-700 hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded-xl shadow-md transition-all"
-            >
-              {card.buttonText}
-            </a>
+            <DialogForm
+              isDialogOpen={dialogStates[index]}
+              toggleDialog={() => toggleDialog(index)}
+              buttonText={card.buttonText}
+              dialogTitle="Send Enquiry"
+            />
           </div>
         ))}
       </div>

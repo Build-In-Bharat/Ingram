@@ -11,10 +11,10 @@ const Fifth: React.FC = () => {
   };
 
   return (
-    <div className="bg-[#0f172a] relative w-full h-screen flex justify-center items-center overflow-hidden container mx-auto min-w-full">
+    <div className="bg-[#010b1a] relative w-full h-screen flex justify-center items-center overflow-hidden container mx-auto min-w-full">
       <div className="flex flex-row justify-between items-center z-10 text-white p-6 w-full max-w-7xl">
         <div className="text-left max-w-2xl">
-          <h2 className="text-4xl lg:text-5xl xl:text-6xl mb-4">
+          <h2 className="text-4xl lg:text-5xl xl:text-6xl mb-4 leading-loose">
             Work <span className="font-bold">smart</span>
             <br />
             Work <span className="font-bold">secure</span>

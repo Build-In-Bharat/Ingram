@@ -3,7 +3,7 @@ import React from "react";
 const Footer: React.FC = () => {
   return (
     <div>
-      <div className="bg-[#010B1A] flex justify-between p-10 container mx-auto min-w-full">
+      <div className="bg-[#040b18] flex justify-between p-10 container mx-auto min-w-full">
         <div className="text-white">
           <p>
             Ingram provides end-to-end supply chain solutions for all categories
@@ -31,7 +31,7 @@ const Footer: React.FC = () => {
           </a>
         </div>
       </div>
-      <div className="bg-blue-600 flex justify-center items-center text-white p-2">
+      <div className="bg-[#3561FF] flex justify-center items-center text-white p-2">
         <p>Copyright &copy; 2024 Ingram</p>
       </div>
     </div>

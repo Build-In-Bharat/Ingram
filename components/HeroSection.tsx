@@ -21,15 +21,15 @@ export default function HeroSection() {
         priority
         className="z-0"
       />
-      <div className="absolute top-0 left-0 w-full z-10 h-24 bg-white/2 backdrop-blur-[80px]">
+      <div className="absolute top-0 left-0 w-full z-10 h-24">
         <Navbar />
       </div>
       <div className="absolute inset-10 z-10 flex items-center">
         <div className="text-white p-6 max-w-2xl text-justify">
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4 text-customBlue">
+          <h2 className="text-3xl md:text-4xl lg:text-6xl font-bold mb-4 text-customBlue leading-[25px]">
             Support for<br></br> Windows 10 ends<br></br> soon in October 25.
           </h2>
-          <p className="text-sm md:text-xl lg:text-sm mb-6 max-w-md">
+          <p className="text-sm md:text-xl lg:text-md mb-6 max-w-md leading-[40px]">
             Support for Windows 10 is ending soon in October 2025 and devices
             will no longer get security and feature updates. Older devices can
             be less secure so delaying upgrades could be costly to your
@@ -37,12 +37,15 @@ export default function HeroSection() {
             with all the latest security and feature updates with Windows 11
             Pro, including Copilot your personal AI assistant.
           </p>
-          <DialogForm
-            isDialogOpen={isDialogOpen}
-            toggleDialog={toggleDialog}
-            buttonText="Contact Us"
-            dialogTitle="Contact Us"
-          />
+          <div className="mt-12">
+            <DialogForm
+              isDialogOpen={isDialogOpen}
+              toggleDialog={toggleDialog}
+              buttonText="Contact Us"
+              dialogTitle="Contact Us"
+              buttonClassNames="px-6 py-6"
+            />
+          </div>
         </div>
       </div>
     </div>
