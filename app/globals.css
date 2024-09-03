@@ -24,33 +24,33 @@
     /* Allow scrolling */
   }
 
-  /* Custom scrollbar styles */
-  ::-webkit-scrollbar {
-    width: 8px;
-    /* Width of the scrollbar */
-    height: 8px;
-    /* Height of the scrollbar */
-  }
+ /* WebKit-based browsers (Chrome, Safari) */
+::-webkit-scrollbar {
+  width: 12px;
+  height: 12px;
+}
 
-  ::-webkit-scrollbar-thumb {
-    background-color: #7b7d84;
-    /* Blue color for the scrollbar thumb */
-    border-radius: 10px;
-    /* Rounded corners for the scrollbar thumb */
-  }
+::-webkit-scrollbar-track {
+  background: #2b2b2b; /* Dark background */
+  border-radius: 10px;
+}
 
-  ::-webkit-scrollbar-track {
-    background: transparent;
-    /* Transparent background for the scrollbar track */
-  }
+::-webkit-scrollbar-thumb {
+  background-color: #5a5a5a; /* Dark grey color for the scrollbar thumb */
+  border-radius: 10px;
+  border: 2px solid #2b2b2b; /* Gives a little space around the thumb */
+}
 
-  /* Firefox scrollbar styles */
-  body {
-    scrollbar-width: thin;
-    /* Make the scrollbar thin */
-    scrollbar-color: #7b7d84 transparent;
-    /* Blue color for the scrollbar thumb and transparent track */
-  }
+::-webkit-scrollbar-thumb:hover {
+  background-color: #4a4a4a; /* Slightly lighter grey when hovered */
+}
+
+/* Firefox */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #5a5a5a #2b2b2b; /* Thumb color and track color */
+}
+
 }
 
 nav {
