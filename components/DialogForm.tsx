@@ -22,6 +22,7 @@ import { formSchema } from "@/lib/validation";
 import { zodResolver } from "@hookform/resolvers/zod";
 import React, { useEffect } from "react";
 import { Controller, useForm } from "react-hook-form";
+import axios from 'axios';
 
 interface DialogFormProps {
     isDialogOpen: boolean;
@@ -49,7 +50,7 @@ export const DialogForm: React.FC<DialogFormProps> = ({
         reset,
     } = useForm({
         resolver: zodResolver(formSchema),
-        defaultValues: formData,
+        defaultValues: { ...formData, section: buttonText },
     });
 
     useEffect(() => {
@@ -57,12 +58,57 @@ export const DialogForm: React.FC<DialogFormProps> = ({
         Object.entries(formData).forEach(([key, value]) => {
             setValue(key as any, value);
         });
-    }, [formData, setValue]);
+        setValue('section', buttonText);
+    }, [formData, setValue, buttonText]);
 
-    const onSubmit = (data: any) => {
-        console.log(data);
-        setFormData(data);
-        toggleDialog();
+    const onSubmit = async (data: any) => {
+        try {
+            const apiUrl = process.env.NEXT_PUBLIC_API_URL as string;
+            // console.log(apiUrl);
+
+            if (!apiUrl) {
+                throw new Error('API URL is not defined');
+            }
+
+            const organizationSizeMap: { [key: string]: string } = {
+                "Fewer than 10": "fewer_than_10",
+                "10-50": "10_50",
+                "51-200": "51_200",
+                "201-500": "201_500",
+                "More than 500": "more_than_500"
+            };
+
+            const upgradePlanMap: { [key: string]: string } = {
+                "Yes, within the next 3 months": "within_3_months",
+                "Yes, within the next 6 months": "within_6_months",
+                "Yes, within the next 12 months": "within_12_months",
+                "No, not at the moment": "no"
+            };
+
+            const formattedData = {
+                name: data.name,
+                designation: data.designation,
+                business_email: data.email,
+                organization_name: data.organization,
+                size_of_organization: organizationSizeMap[data.organizationSize],
+                upgrade_plan: upgradePlanMap[data.upgradePlan],
+                consent_to_contact: data.consent,
+                section: buttonText
+            };
+
+            const response = await axios.post(`${apiUrl}/submit-form/`, formattedData);
+
+            if (response.status === 200) {
+                console.log('Form submitted successfully');
+                setFormData({ ...data, section: buttonText });
+                toggleDialog();
+            } else {
+                throw new Error('Form submission failed');
+            }
+        } catch (error) {
+            console.error('Error submitting form:', error);
+            // Handle error (e.g., show error message to user)
+        }
     };
 
     const handleInputChange = (field: string, value: any) => {
@@ -82,6 +128,11 @@ export const DialogForm: React.FC<DialogFormProps> = ({
                 </DialogHeader>
                 <ScrollArea className="max-h-[80vh]">
                     <form className="p-4" onSubmit={handleSubmit(onSubmit)}>
+                        <input
+                            type="hidden"
+                            {...register("section")}
+                            value={buttonText}
+                        />
                         <div className="mb-4">
                             <label className="block text-sm font-medium text-white">
                                 Name

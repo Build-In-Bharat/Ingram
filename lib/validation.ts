@@ -11,5 +11,6 @@ export const formSchema = z.object({
     upgradePlan: z.enum(["Yes, within the next 3 months", "Yes, within the next 6 months", "Yes, within the next 12 months", "No, not at the moment"], {
         required_error: "Please select an upgrade plan option"
     }),
-    consent: z.boolean().refine(val => val === true, "Consent is required")
+    consent: z.boolean().refine(val => val === true, "Consent is required"),
+    section: z.string()
 });
