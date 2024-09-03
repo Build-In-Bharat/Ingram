@@ -58,7 +58,7 @@ export default function HeroSection() {
   return (
     <div className="relative w-full h-screen flex flex-col justify-center overflow-hidden m-0 p-0 bg-black">
       <Image
-        src="/Home_background.svg"
+        src="/hero_bg.png"
         alt="Background with Laptop"
         layout="fill"
         objectFit="cover"
