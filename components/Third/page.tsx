@@ -16,8 +16,13 @@ const Third: React.FC = () => {
       <div className="max-w-screen mx-auto flex flex-col">
         <div className="mb-8 w-70 text-justify px-24 pb-10 ">
           <div className="text-[#50aed8] font-bold text-4xl mb-4 flex flex-col justify-between gap-3">
-            <span>"We&apos;re able to do a lot of things much faster, much more
-              efficiently.</span> <span className="ml-4">Windows 11 Pro made my whole team very effective."</span>
+            <span>
+              "We&apos;re able to do a lot of things much faster, much more
+              efficiently.
+            </span>{" "}
+            <span className="ml-4">
+              Windows 11 Pro made my whole team very effective."
+            </span>
           </div>
           <div className="text-white">
             <div className="font-bold text-2xl ml-4">
@@ -52,7 +57,7 @@ const Third: React.FC = () => {
 
             <h2 className="text-5xl my-10">A new AI era at work</h2>
 
-            <p className="mb-4 text-lg mb-6">
+            <p className="text-lg mb-6">
               Introducing the world's fastest, most intelligent<br></br>
               Windows PCs ever. Accelerate innovation, solve<br></br>
               problems faster, and drive transformative business<br></br>
