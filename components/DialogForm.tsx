@@ -118,7 +118,7 @@ export const DialogForm: React.FC<DialogFormProps> = ({
     return (
         <Dialog open={isDialogOpen} onOpenChange={toggleDialog}>
             <DialogTrigger asChild>
-                <Button className={cn("bg-[#3561FF] hover:bg-[#2749CC] text-white font-semibold py-4 px-4 rounded shadow-md text-lg transition-all", buttonClassNames)}>
+                <Button className={cn("bg-[#3561FF] hover:bg-[#2749CC] text-white py-4 px-4 rounded shadow-md text-lg transition-all", buttonClassNames)}>
                     {buttonText}
                 </Button>
             </DialogTrigger>
@@ -306,7 +306,7 @@ export const DialogForm: React.FC<DialogFormProps> = ({
                         </div>
                         <button
                             type="submit"
-                            className="bg-blue-600 hover:bg-blue-500 text-white font-semibold py-2 px-4 rounded-md shadow-md transition-all"
+                            className="bg-blue-600 hover:bg-blue-500 text-white py-2 px-4 rounded-md shadow-md transition-all"
                         >
                             Submit
                         </button>

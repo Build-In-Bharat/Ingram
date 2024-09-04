@@ -17,7 +17,7 @@ export default function HeroSection() {
         src="/hero_bg.png"
         alt="Background with Laptop"
         layout="fill"
-        objectFit="fill"
+        objectFit="cover"
         priority
         className="z-0"
       />

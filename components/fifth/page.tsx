@@ -22,7 +22,7 @@ const Fifth: React.FC = () => {
             Work <span className="font-bold">fast</span>
             <br />
             Work
-            <span className="text-purple-600 font-bold text-7xl xl:text-8xl">
+            <span className="text-purple-600 font-bold text-7xl xl:text-8xl ml-3">
               Magic
             </span>
           </h2>

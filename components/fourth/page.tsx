@@ -59,7 +59,7 @@ const Fourth: React.FC = () => {
   return (
     <section className="bg-[#010b1a] pt-16 pb-12 text-center text-white">
       <div className="container mx-auto px-4">
-        <h2 className="text-2xl font-semibold mb-4 mt-14">
+        <h2 className="text-[37px] font-semibold mb-4 mt-14">
           How Copilot+ PCs help your business
         </h2>
         <p className="mb-12 text-sm max-w-3xl mx-auto">
