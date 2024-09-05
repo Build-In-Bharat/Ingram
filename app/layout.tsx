@@ -17,7 +17,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <>
+    <html>
       <Head>
         <script
           dangerouslySetInnerHTML={{
@@ -36,9 +36,9 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       >
         <ToastContainer /> {/* Update Toaster to ToastContainer */}
         <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-T92N854K"
-height="0" width="0" style={{ display: 'none', visibility: 'hidden' }}></iframe></noscript>
+          height="0" width="0" style={{ display: 'none', visibility: 'hidden' }}></iframe></noscript>
         {children}
       </body>
-    </>
+    </html>
   );
 }
