@@ -8,7 +8,7 @@ import Head from 'next/head';
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Redington Campaign",
+  title: "Ingram Campaign",
 };
 
 export default function RootLayout({
