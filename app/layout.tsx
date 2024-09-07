@@ -2,8 +2,7 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import { ToastContainer } from "react-toastify"; // Change Toaster to ToastContainer
-import 'react-toastify/dist/ReactToastify.css'; // Import CSS for Toastify
-import Head from 'next/head';
+import "react-toastify/dist/ReactToastify.css"; // Import CSS for Toastify
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -18,7 +17,7 @@ export default function RootLayout({
 }>) {
   return (
     <html>
-      <Head>
+      <head>
         <script
           dangerouslySetInnerHTML={{
             __html: `
@@ -30,13 +29,19 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             `,
           }}
         />
-      </Head>
+      </head>
       <body
         className={inter.className + " antialiased bg-background min-h-screen"}
       >
         <ToastContainer /> {/* Update Toaster to ToastContainer */}
-        <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-T92N854K"
-          height="0" width="0" style={{ display: 'none', visibility: 'hidden' }}></iframe></noscript>
+        <noscript>
+          <iframe
+            src="https://www.googletagmanager.com/ns.html?id=GTM-T92N854K"
+            height="0"
+            width="0"
+            style={{ display: "none", visibility: "hidden" }}
+          ></iframe>
+        </noscript>
         {children}
       </body>
     </html>
