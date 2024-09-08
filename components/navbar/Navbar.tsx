@@ -10,10 +10,10 @@ const Navbar: React.FC = () => {
             <div className="flex">
               <a href="#" className="flex-shrink-0">
                 <Image className="hidden md:block" src="/logo.svg" alt="Logo" width={150} height={150} />
-                <Image className="md:hidden" src="/logo.svg" alt="Logo" width={80} height={80} />
+                <Image className="md:hidden" src="/logo.svg" alt="Logo" width={100} height={100} />
               </a>
             </div>
-            <div className="flex items-center space-x-3 md:space-x-5">
+            <div className="flex items-center  space-x-2 md:space-x-5">
               <a href="#" className="flex-shrink-0">
                 <Image
                   className="hidden md:block"
@@ -30,7 +30,7 @@ const Navbar: React.FC = () => {
                   height={100}
                 />
               </a>
-              <div className="border-l border-gray-300 h-6"></div>
+              <div className="border-l border-gray-300 h-6 hidden md:block"></div>
               <a href="#" className="flex-shrink-0">
                 <Image
                 className="hidden md:block"

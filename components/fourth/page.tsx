@@ -56,6 +56,10 @@ const Fourth: React.FC = () => {
     <section className="bg-[#010b1a] py-10 sm:py-20 text-white">
       <div className="container mx-auto px-4">
         <div className="flex flex-col items-center gap-8 sm:gap-16 w-full sm:w-[90vw] md:w-[80vw] mx-auto">
+          <div className="mt-5">
+            <div className="text-[32px] font-bold leading-[39px]">How Copilot+ PCs help your business</div>
+            <div className="text-[14px] leading-[17px] my-4">Accelerate success with a turbocharged NPU for an unmatched experience with lightning speed and smooth performance. Copilot+ PCs bring intelligent edge computing to your desktop experience.</div>
+          </div>
           {/* Main video */}
           <div className="w-full">
             <div
@@ -67,17 +71,20 @@ const Fourth: React.FC = () => {
                 backgroundPosition: "center",
               }}
             >
-              <div className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-50 opacity-0 group-hover:opacity-100 transition-opacity">
+              <div className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-50 opacity-100 md:opacity-0 group-hover:opacity-100 transition-opacity">
                 <span className="text-white text-xl sm:text-3xl flex gap-2 sm:gap-3 items-center">
                   Play Video <IconPlayerPlayFilled size={24} className="sm:w-10 sm:h-10" />
                 </span>
               </div>
             </div>
-            <div className="text-center mt-4 sm:mt-6">
-              <h2 className="text-2xl sm:text-3xl font-semibold mb-2 sm:mb-3">{cardsData[0].title}</h2>
-              <p className="text-base sm:text-lg max-w-3xl mx-auto">{cardsData[0].subtitle}</p>
+            <div className="md:text-center mt-4 sm:mt-6">
+              <h2 className="text-[20px] leading-[24px] sm:text-3xl font-semibold mb-2 sm:mb-3">{cardsData[0].title}</h2>
+              <p className="text-[14px] leading-[17px] sm:text-lg max-w-3xl mx-auto">{cardsData[0].subtitle}</p>
+              <div className="h-1 w-full border-b border-gray-600 mt-8 mb-3"></div>
             </div>
           </div>
+
+          
 
           {/* Smaller videos */}
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 w-full">
@@ -92,20 +99,20 @@ const Fourth: React.FC = () => {
                     backgroundPosition: "center",
                   }}
                 >
-                  <div className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-50 opacity-0 group-hover:opacity-100 transition-opacity">
+                  <div className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-50 opacity-100 md:opacity-0 group-hover:opacity-100 transition-opacity">
                     <span className="text-white text-lg sm:text-xl flex gap-2 items-center">
                       Play <IconPlayerPlayFilled size={20} className="sm:w-6 sm:h-6" />
                     </span>
                   </div>
                 </div>
                 <div className="text-center mt-3 sm:mt-4">
-                  <h3 className="text-lg sm:text-xl font-semibold mb-1 sm:mb-2">{card.title}</h3>
-                  <p className="text-xs sm:text-sm">{card.subtitle}</p>
+                  <h3 className="text-[16px] sm:text-xl font-semibold mb-1 sm:mb-2">{card.title}</h3>
+                  <p className="text-[12px] sm:text-sm">{card.subtitle}</p>
                 </div>
                 {/* Add line divider for mobile view */}
-                {index < cardsData.slice(1).length - 1 && (
+                {/* {index < cardsData.slice(1).length - 1 && (
                   <hr className="border-t border-gray-600 my-6 sm:hidden" />
-                )}
+                )} */}
               </div>
             ))}
           </div>
