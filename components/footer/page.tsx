@@ -6,7 +6,7 @@ const Footer: React.FC = () => {
     <div className="flex flex-col">
       <div className="bg-[#040b18] pb-6 flex flex-col md:flex-row justify-between p-4 md:p-10 container mx-auto min-w-full">
         <div className="text-white mb-4 md:mb-0">
-          <p className="text-sm md:text-base">
+          <p className="text-[16px] mt-8 md:mt-0 md:text-base">
             Ingram provides end-to-end supply chain solutions for all categories
             of <br className="hidden md:inline" />
             Information Technology, Telecom, Lifestyle, Healthcare, and Solar

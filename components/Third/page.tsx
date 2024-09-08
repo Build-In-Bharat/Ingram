@@ -2,7 +2,7 @@
 import React, { useState } from "react";
 import Image from "next/image";
 import { Button } from "../ui/button";
-import { DialogForm } from "../DialogForm";
+import { DialogForm } from "../EarlyAccess";
 
 const Third: React.FC = () => {
   const [isDialogOpen, setIsDialogOpen] = useState(false);
@@ -33,13 +33,13 @@ const Third: React.FC = () => {
         </div>
 
         <div className="bg-gradient-to-b from-[#010b1a] to-[#06183E] flex md:gap-x-12 items-center">
-          <div className="w-1/2 h-full md:w-fit relative">
+          <div className="w-1/2 h-full md:w-fit">
             <Image
               src="/Third_comp.svg"
               alt="Windows 11 Pro laptop"
-              className="w-full h-full md:w-[30vw] object-cover"
-              layout="fill"
-              objectFit="cover"
+              className="w-full h-[100%] md:w-[30vw]  "
+              width={300}
+              height={150}
             />
           </div>
 
@@ -66,8 +66,8 @@ const Third: React.FC = () => {
               <DialogForm
                 isDialogOpen={isDialogOpen}
                 toggleDialog={toggleDialog}
-                buttonText="Download e-book"
-                dialogTitle="Download e-book"
+                buttonText="Get Early Access"
+                dialogTitle="Get Early Access"
                 buttonClassNames="hidden md:block px-3 py-1 mt-4 sm:mt-6 w-full sm:w-auto"
               />
             </div>

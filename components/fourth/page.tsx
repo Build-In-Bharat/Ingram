@@ -18,25 +18,25 @@ const Fourth: React.FC = () => {
   const cardsData: CardData[] = [
     {
       imageSrc: "/Video4.png",
-      videoUrl: "https://youtu.be/SPHto1DHcZ4",
+      videoUrl: "https://www.youtube.com/watch?v=SPHto1DHcZ4",
       title: "A new AI era at work",
-      subtitle: "Experience superb-quality video calls in any app. Windows Studio Effects dynamically responds to you and your environment to automatically adjust your lighting, filter background noise and movement, keep you in the frame, and more."
+      subtitle: "Introducing the world's fastest, most intelligent Windows PCs ever. Accelerate innovation, solve problems faster, and drive transformative business impact with Copilot+ PCs."
     },
     {
-      imageSrc: "/Video1.png",
-      videoUrl: "https://youtu.be/Xfsv_c0vJvM",
-      title: "Put AI to work for you",
-      subtitle: "Experience superb-quality video calls in any app. Windows Studio Effects dynamically responds to you and your environment to automatically adjust your lighting, filter background noise and movement, keep you in the frame, and more."
+      imageSrc: "/1.png",
+      videoUrl: "https://www.youtube.com/watch?v=Xfsv_c0vJvM",
+      title: "Recall almost anything anywhere",
+      subtitle: "Use recall to search across your personal timeline, apps, documents, and communications to find and predict the most relevant content. With just a few words, describe it to find it using natural language options."
     },
     {
-      imageSrc: "/Video2.png",
-      videoUrl: "https://youtu.be/a3bEOqiv3yU",
-      title: "Put AI to work for you",
-      subtitle: "Experience superb-quality video calls in any app. Windows Studio Effects dynamically responds to you and your environment to automatically adjust your lighting, filter background noise and movement, keep you in the frame, and more."
+      imageSrc: "/2.png",
+      videoUrl: "https://www.youtube.com/watch?v=a3bEOqiv3yU",
+      title: "Keep communication flowing effortlessly",
+      subtitle: "Using live captions with translation,2 you can understand almost any video call or recording with real-time translation from 40+ languages into English."
     },
     {
-      imageSrc: "/Video3.png",
-      videoUrl: "https://youtu.be/zVv_mJoSh_g",
+      imageSrc: "/3.png",
+      videoUrl: "https://www.youtube.com/watch?v=zVv_mJoSh_g",
       title: "Put AI to work for you",
       subtitle: "Experience superb-quality video calls in any app. Windows Studio Effects dynamically responds to you and your environment to automatically adjust your lighting, filter background noise and movement, keep you in the frame, and more."
     },
@@ -121,8 +121,8 @@ const Fourth: React.FC = () => {
 
       <Dialog open={isDialogOpen} onOpenChange={setIsDialogOpen}>
         <DialogOverlay className="fixed inset-0 bg-[#0f172a] bg-opacity-75 flex justify-center items-center z-50">
-          <DialogContent className="bg-[#1f2937] p-4 sm:p-6 rounded-lg max-w-3xl w-full text-white">
-            <ReactPlayer url={currentVideoUrl} controls width="100%" height="auto" />
+          <DialogContent className="bg-[#1f2937] p-4 sm:p-6 rounded-lg max-w-3xl w-full h-full text-white flex items-center justify-center">
+            <ReactPlayer url={currentVideoUrl} controls width="100%" height="100%" />
           </DialogContent>
         </DialogOverlay>
       </Dialog>

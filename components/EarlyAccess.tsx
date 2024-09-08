@@ -24,7 +24,15 @@ interface DialogFormProps {
 }
 
 const formSchema = z.object({
-    email: z.string().email("Invalid email address"),
+    email: z.string()
+        .email("Invalid email address")
+        .refine(
+            (email) => {
+                const [, domain] = email.split('@');
+                return !['gmail.com', 'yahoo.com', 'hotmail.com', 'outlook.com'].includes(domain.toLowerCase());
+            },
+            { message: "Please use a business email address" }
+        ),
 });
 
 type FormValues = z.infer<typeof formSchema>;
