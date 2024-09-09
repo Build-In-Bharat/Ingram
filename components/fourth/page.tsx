@@ -3,10 +3,8 @@ import React, { useState } from "react";
 import { Dialog, DialogContent, DialogOverlay } from "@/components/ui/dialog";
 import ReactPlayer from "react-player";
 import { IconPlayerPlayFilled } from "@tabler/icons-react";
-import dynamic from 'next/dynamic';
+import useEmblaCarousel from 'embla-carousel-react';
 import { useMediaQuery } from "@/hooks/useMediaQuery";
-
-const EmblaCarousel = dynamic(() => import('embla-carousel-react'), { ssr: false });
 
 interface CardData {
   imageSrc: string;
@@ -19,24 +17,13 @@ const Fourth: React.FC = () => {
   const [isDialogOpen, setIsDialogOpen] = useState(false);
   const [currentVideoUrl, setCurrentVideoUrl] = useState("");
   const isMobile = useMediaQuery("(max-width: 640px)");
-  const emblaRef = React.useRef(null);
-
-  React.useEffect(() => {
-    if (isMobile && emblaRef.current) {
-      const emblaOptions = { 
-        loop: true,
-        align: 'center',
-        containScroll: 'trimSnaps',
-        dragFree: true,
-        slidesToScroll: 1
-      };
-      
-      import('embla-carousel-react').then((EmblaCarouselModule) => {
-        const embla = EmblaCarouselModule.default(emblaRef.current, emblaOptions);
-        return () => embla && embla.destroy();
-      });
-    }
-  }, [isMobile]);
+  const [emblaRef] = useEmblaCarousel({
+    loop: true,
+    align: 'center',
+    containScroll: 'trimSnaps',
+    dragFree: true,
+    slidesToScroll: 1
+  });
 
   const cardsData: CardData[] = [
     {

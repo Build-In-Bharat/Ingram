@@ -24,35 +24,64 @@
     /* Allow scrolling */
   }
 
- /* WebKit-based browsers (Chrome, Safari) */
-::-webkit-scrollbar {
-  width: 12px;
-  height: 12px;
-}
+  /* WebKit-based browsers (Chrome, Safari) */
+  ::-webkit-scrollbar {
+    width: 12px;
+    height: 12px;
+  }
 
-::-webkit-scrollbar-track {
-  background: #2b2b2b; /* Dark background */
-  border-radius: 10px;
-}
+  ::-webkit-scrollbar-track {
+    background: #2b2b2b;
+    /* Dark background */
+    border-radius: 10px;
+  }
 
-::-webkit-scrollbar-thumb {
-  background-color: #5a5a5a; /* Dark grey color for the scrollbar thumb */
-  border-radius: 10px;
-  border: 2px solid #2b2b2b; /* Gives a little space around the thumb */
-}
+  ::-webkit-scrollbar-thumb {
+    background-color: #5a5a5a;
+    /* Dark grey color for the scrollbar thumb */
+    border-radius: 10px;
+    border: 2px solid #2b2b2b;
+    /* Gives a little space around the thumb */
+  }
 
-::-webkit-scrollbar-thumb:hover {
-  background-color: #4a4a4a; /* Slightly lighter grey when hovered */
-}
+  ::-webkit-scrollbar-thumb:hover {
+    background-color: #4a4a4a;
+    /* Slightly lighter grey when hovered */
+  }
 
-/* Firefox */
-* {
-  scrollbar-width: thin;
-  scrollbar-color: #5a5a5a #2b2b2b; /* Thumb color and track color */
-}
+  /* Firefox */
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: #5a5a5a #2b2b2b;
+    /* Thumb color and track color */
+  }
 
 }
 
 nav {
   background-color: transparent !important;
+}
+
+.embla {
+  --slide-spacing: 0.5rem;
+  --slide-size: 80%;
+  /* Increased from 70% to 80% */
+  --slide-height: auto;
+  padding: 0.5rem;
+  /* Reduced padding to allow for larger cards */
+  overflow: visible;
+}
+
+.embla__container {
+  backface-visibility: hidden;
+  display: flex;
+  touch-action: pan-y;
+}
+
+.embla__slide {
+  flex: 0 0 var(--slide-size);
+  min-width: 0;
+  padding-left: calc(var(--slide-spacing) / 2);
+  padding-right: calc(var(--slide-spacing) / 2);
+  position: relative;
 }
