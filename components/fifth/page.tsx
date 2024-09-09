@@ -11,8 +11,8 @@ const Fifth: React.FC = () => {
   };
 
   return (
-    <div className="bg-[#010b1a] relative w-full md:min-h-screen flex justify-center items-center overflow-hidden container mx-auto min-w-full px-4 py-8 md:px-6 lg:px-8">
-      <div className="flex flex-row justify-between items-center z-10 text-white w-full max-w-7xl">
+    <div className="bg-[#010b1a] relative w-full md:min-h-screen flex justify-center items-center overflow-hidden container mx-auto min-w-full pl-4 py-8 md:pl-6 lg:pl-8">
+      <div className="flex flex-row justify-between items-center z-10 text-white w-full ">
         <div className="text-left w-full mb-8 lg:mb-0 lg:w-1/2">
           <span className="flex relative">
             <h2 className="text-[22px] md:text-4xl lg:text-5xl xl:text-6xl mb-4 flex flex-col md:gap-5 w-1/2">
@@ -34,7 +34,7 @@ const Fifth: React.FC = () => {
               />
             </div>
           </span>
-          <p className="text-base md:text-lg lg:text-xl xl:text-2xl mb-6 mt-12 text-center md:text-left md:mt-8">
+          <p className="text-base md:text-lg lg:text-xl xl:text-2xl mb-6 mt-12 text-center md:text-left md:mt-8 mr-3 md:mr-0">
             Leverage Windows 11 Pro devices + Microsoft 365,
             <br className="hidden md:block" /> the perfect pair for a secure, AI-powered cloud solution.
           </p>

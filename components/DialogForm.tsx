@@ -305,7 +305,7 @@ export const DialogForm: React.FC<DialogFormProps> = ({
                                 )}
                             />
                             <label className="text-sm font-medium text-white">
-                                I am ok to be contacted by Redington and its partners for
+                                I am ok to be contacted by Ingram and its partners for
                                 their products and services
                             </label>
                             {errors.consent && (

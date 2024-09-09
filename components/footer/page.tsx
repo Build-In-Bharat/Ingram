@@ -4,7 +4,7 @@ import Image from "next/image";
 const Footer: React.FC = () => {
   return (
     <div className="flex flex-col">
-      <div className="bg-[#040b18] pb-6 flex flex-col md:flex-row justify-between p-4 md:p-10 container mx-auto min-w-full">
+      {/* <div className="bg-[#040b18] pb-6 flex flex-col md:flex-row justify-between p-4 md:p-10 container mx-auto min-w-full">
         <div className="text-white mb-4 md:mb-0">
           <p className="text-[16px] mt-8 md:mt-0 md:text-base">
             Ingram provides end-to-end supply chain solutions for all categories
@@ -31,7 +31,7 @@ const Footer: React.FC = () => {
             <img src="/youtube.svg" alt="YouTube" className="h-8 w-8 md:h-10 md:w-10" />
           </a>
         </div>
-      </div>
+      </div> */}
       <div className="bg-[#3561FF] flex flex-col md:flex-row justify-between items-center text-white pt-1 pb-3 px-4 md:px-16 gap-4 md:gap-12">
         <Image src="/logo-white.png" alt="Logo" width={120} height={120} className="w-32 md:w-40 h-auto" />
         <div className="flex flex-wrap justify-center md:justify-start gap-2 md:gap-3 text-xs md:text-sm">
@@ -42,6 +42,21 @@ const Footer: React.FC = () => {
           <a target="_blank" href="https://www.ingrammicro.com/en-us/company/contact-us" className="hover:underline">Do not sell/share my information</a>
           <a target="_blank" href="https://www.ingrammicro.com/en-us/legal/terms-of-use" className="hover:underline">Terms of use</a>
           <a href="#" onClick={(e) => e.preventDefault()} className="hover:underline">Cookie Options</a>
+        </div>
+        <div className="flex justify-center md:justify-end space-x-3 md:space-x-5">
+          <a href="https://www.facebook.com/profile.php?id=61565401199245" className="flex-shrink-0">
+            <img
+              src="/facebook.svg"
+              alt="Facebook"
+              className="w-5 md:w-8 rounded-full"
+            />
+          </a>
+          <a href="https://www.instagram.com/windows11forsmbs.ingrammicro/" className="flex-shrink-0">
+            <img src="/Instagram.svg" alt="Instagram" className="w-5 md:w-8" />
+          </a>
+          <a href="https://www.linkedin.com/company/windows-11-for-smbs-by-ingram-micro/" className="flex-shrink-0">
+            <img src="/linkedin.svg" alt="LinkedIn" className="w-5 md:w-8" />
+          </a>
         </div>
       </div>
     </div>
