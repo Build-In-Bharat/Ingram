@@ -14,14 +14,14 @@ const cardsData = [
   },
   {
     imageSrc: "/Laptop2.avif",
-    title: "Dell Latitude 5440 Laptop",
+    title: "Dell Latitude 5440 Laptop i3",
     description:
       "Latitude's first Copilot+ PC powered by Snapdragon® X Series ushers in a new era of AI with game-changing performance and outstanding battery life",
     buttonText: "Send Enquiry",
   },
   {
     imageSrc: "/Laptop2.avif",
-    title: "Dell Latitude 5440 Laptop",
+    title: "Dell Latitude 5440 Laptop i5",
     description:
       "Latitude's first Copilot+ PC powered by Snapdragon® X Series ushers in a new era of AI with game-changing performance and outstanding battery life",
     buttonText: "Send Enquiry",
