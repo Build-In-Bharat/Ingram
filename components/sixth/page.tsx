@@ -11,20 +11,23 @@ const cardsData = [
     description:
       "Latitude's first Copilot+ PC powered by Snapdragon® X Series ushers in a new era of AI with game-changing performance and outstanding battery life",
     buttonText: "Send Enquiry",
+    formSection: "send-enquiry-Latitude-7455-Laptop",
   },
   {
     imageSrc: "/Laptop2.avif",
-    title: "Dell Latitude 5440 Laptop i3",
+    title: "Dell Latitude 5440 (i5) Efficient Professional Choice",
     description:
-      "Latitude's first Copilot+ PC powered by Snapdragon® X Series ushers in a new era of AI with game-changing performance and outstanding battery life",
+      "Powered by the 13th Gen Intel® Core™ i5-1345U, vPro®, Running on Windows 11 Pro, it’s optimized for business users who need efficient performance and reliability.",
     buttonText: "Send Enquiry",
+    formSection: "send-enquiry-Latitude-5440-i5",
   },
   {
     imageSrc: "/Laptop2.avif",
-    title: "Dell Latitude 5440 Laptop i5",
+    title: "Dell Latitude 5440 (i7) High-Performance Workhorse",
     description:
-      "Latitude's first Copilot+ PC powered by Snapdragon® X Series ushers in a new era of AI with game-changing performance and outstanding battery life",
+      " Featuring the 13th Gen Intel® Core™ i7-1365U, vPro®, Running on Windows 11 Pro, it’s perfect for power users who demand top-notch processing capabilities for advanced tasks.",
     buttonText: "Send Enquiry",
+    formSection: "send-enquiry-Latitude-5440-i7",
   },
 ];
 
@@ -64,7 +67,7 @@ const Sixth: React.FC = () => {
         buttonText={card.buttonText}
         dialogTitle="Send Enquiry"
         buttonClassNames="w-full py-2 px-3 text-xs sm:text-sm md:text-base"
-        section="send-enquiry"
+        section={card.formSection}
       />
     </div>
   );
