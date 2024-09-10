@@ -49,7 +49,7 @@ const Sixth: React.FC = () => {
   };
 
   const renderCard = (card: (typeof cardsData)[0], index: number) => (
-    <div className="bg-[#0a1929] p-3 sm:p-4 md:p-5 rounded-lg shadow-md w-full">
+    <div className="bg-[#0a1929] p-3 sm:p-4 md:p-5 rounded-lg shadow-md w-full flex flex-col justify-around">
       <img
         src={card.imageSrc}
         alt={card.title}
@@ -66,7 +66,7 @@ const Sixth: React.FC = () => {
         toggleDialog={() => toggleDialog(index)}
         buttonText={card.buttonText}
         dialogTitle="Send Enquiry"
-        buttonClassNames="w-full py-2 px-3 text-xs sm:text-sm md:text-base"
+        buttonClassNames="w-full py-2 px-3 text-xs sm:text-sm md:text-base self-end"
         section={card.formSection}
       />
     </div>
