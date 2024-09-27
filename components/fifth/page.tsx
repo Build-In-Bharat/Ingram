@@ -1,7 +1,7 @@
 "use client";
 import Image from "next/image";
 import React, { useState } from "react";
-import { DialogForm } from "../EarlyAccess";
+import { DialogForm } from "../DialogForm";
 
 const Fifth: React.FC = () => {
   const [isDialogOpen, setIsDialogOpen] = useState(false);
@@ -42,8 +42,9 @@ const Fifth: React.FC = () => {
             <DialogForm
               isDialogOpen={isDialogOpen}
               toggleDialog={toggleDialog}
-              buttonText="Get Early Access"
-              dialogTitle="Get Early Access"
+              buttonText="Download Guide"
+              dialogTitle="Download Guide"
+              section="work-magic"
               buttonClassNames="py-4 px-4 md:py-5 md:px-5 lg:py-7 lg:px-6 mx-auto md:mx-0"
             />
           </div>
