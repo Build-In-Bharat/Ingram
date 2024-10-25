@@ -2,6 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
+html, body {
+  scroll-behavior: smooth !important ;
+}
+
 @layer utilities {
   .text-balance {
     text-wrap: balance;
@@ -9,84 +13,79 @@
 }
 
 @layer base {
-  :root {
-    --background: 216 92.59% 5.29%;
-    --foreground: 240 10% 3.9%;
-    --card: 0 0% 100%;
-    --card-foreground: 240 10% 3.9%;
-    --popover: 0 0% 100%;
-    --popover-foreground: 240 10% 3.9%;
-    --primary: 240 5.9% 10%;
-    --primary-foreground: 0 0% 98%;
-    --secondary: 240 4.8% 95.9%;
-    --secondary-foreground: 240 5.9% 10%;
-    --muted: 240 4.8% 95.9%;
-    --muted-foreground: 240 3.8% 46.1%;
-    --accent: 240 4.8% 95.9%;
-    --accent-foreground: 240 5.9% 10%;
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 0 0% 98%;
-    --border: 240 5.9% 90%;
-    --input: 240 5.9% 90%;
-    --ring: 240 10% 3.9%;
-    --chart-1: 12 76% 61%;
-    --chart-2: 173 58% 39%;
-    --chart-3: 197 37% 24%;
-    --chart-4: 43 74% 66%;
-    --chart-5: 27 87% 67%;
-    --radius: 0.5rem;
-  }
-}
-
-@layer base {
   * {
     @apply border-border;
+    margin: 0;
+    /* Ensure no default margin */
+    padding: 0;
+    /* Ensure no default padding */
   }
+
   body {
     @apply bg-background text-foreground;
+    font-family: "Segoe UI", sans-serif;
+    overflow: auto;
+    /* Allow scrolling */
   }
+
+  /* WebKit-based browsers (Chrome, Safari) */
+  ::-webkit-scrollbar {
+    width: 12px;
+    height: 12px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: #2b2b2b;
+    /* Dark background */
+    border-radius: 10px;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background-color: #5a5a5a;
+    /* Dark grey color for the scrollbar thumb */
+    border-radius: 10px;
+    border: 2px solid #2b2b2b;
+    /* Gives a little space around the thumb */
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background-color: #4a4a4a;
+    /* Slightly lighter grey when hovered */
+  }
+
+  /* Firefox */
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: #5a5a5a #2b2b2b;
+    /* Thumb color and track color */
+  }
+
 }
 
-
-
-/* For custom Scrollbar */
-/* Define CSS variables for light and dark themes */
-:root {
-  --scrollbar-bg: #f0f0f0;
-  --scrollbar-thumb: #888;
-  --scrollbar-thumb-hover: #555;
+nav {
+  background-color: transparent !important;
 }
 
-/* Dark theme adjustments */
-[data-theme="dark"] {
-  --scrollbar-bg: #2b2b2b;
-  --scrollbar-thumb: #555;
-  --scrollbar-thumb-hover: #888;
+.embla {
+  --slide-spacing: 0.5rem;
+  --slide-size: 80%;
+  /* Increased from 70% to 80% */
+  --slide-height: auto;
+  padding: 0.5rem;
+  /* Reduced padding to allow for larger cards */
+  overflow: visible;
 }
 
-/* Custom scrollbar for Webkit browsers (Chrome, Safari, etc.) */
-::-webkit-scrollbar {
-  width: 12px;
-  height: 12px;
+.embla__container {
+  backface-visibility: hidden;
+  display: flex;
+  touch-action: pan-y;
 }
 
-::-webkit-scrollbar-track {
-  background: var(--scrollbar-bg);
-  border-radius: 10px;
-}
-
-::-webkit-scrollbar-thumb {
-  background-color: var(--scrollbar-thumb);
-  border-radius: 10px;
-  transition: background-color 0.3s ease;
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background-color: var(--scrollbar-thumb-hover);
-}
-
-/* Custom scrollbar for Firefox */
-* {
-  scrollbar-width: thin;
-  scrollbar-color: var(--scrollbar-thumb) var(--scrollbar-bg);
+.embla__slide {
+  flex: 0 0 var(--slide-size);
+  min-width: 0;
+  padding-left: calc(var(--slide-spacing) / 2);
+  padding-right: calc(var(--slide-spacing) / 2);
+  position: relative;
 }

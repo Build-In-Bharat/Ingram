@@ -1,39 +1,110 @@
-import React from 'react';
+"use client";
+import React, { useState } from "react";
+import { DialogForm } from "../DialogForm";
+import useEmblaCarousel from "embla-carousel-react";
+import { useMediaQuery } from "@/hooks/useMediaQuery";
+
+const cardsData = [
+  {
+    imageSrc: "/Laptop1.avif",
+    title: "Latitude 7455 Laptop",
+    description:
+      "Latitude's first Copilot+ PC powered by Snapdragon® X Series ushers in a new era of AI with game-changing performance and outstanding battery life",
+    buttonText: "Send Enquiry",
+    formSection: "send-enquiry-Latitude-7455-Laptop",
+  },
+  {
+    imageSrc: "/Laptop2.avif",
+    title: "Dell Latitude 5440 (i5) Efficient Professional Choice",
+    description:
+      "Powered by the 13th Gen Intel® Core™ i5-1345U, vPro®, Running on Windows 11 Pro, it’s optimized for business users who need efficient performance and reliability.",
+    buttonText: "Send Enquiry",
+    formSection: "send-enquiry-Latitude-5440-i5",
+  },
+  {
+    imageSrc: "/Laptop2.avif",
+    title: "Dell Latitude 5440 (i7) High-Performance Workhorse",
+    description:
+      " Featuring the 13th Gen Intel® Core™ i7-1365U, vPro®, Running on Windows 11 Pro, it’s perfect for power users who demand top-notch processing capabilities for advanced tasks.",
+    buttonText: "Send Enquiry",
+    formSection: "send-enquiry-Latitude-5440-i7",
+  },
+];
 
 const Sixth: React.FC = () => {
-  return (
-    <section className="bg-[#0f172a] text-white py-10">
-      <div className="container mx-auto text-center mb-12">
-        <p className="text-lg md:text-xl max-w-2xl mx-auto">
-          To break new ground, you need ground-breaking devices. Windows 11 Pro devices can accelerate workflows and collaboration 50% on average. With experiences that elevate the potential of everyone on your team.
-        </p>
-      </div>
+  const [dialogStates, setDialogStates] = useState(cardsData.map(() => false));
+  const isMobile = useMediaQuery("(max-width: 640px)");
+  const [emblaRef] = useEmblaCarousel({
+    loop: true,
+    align: "center",
+    containScroll: false,
+    dragFree: true,
+    slidesToScroll: 1,
+  });
 
-      <div className="container mx-auto flex flex-col md:flex-row justify-center space-y-8 md:space-y-0 md:space-x-8">
-        <div className="p-6 max-w-xs text-start">
-          <img src="/sixth_card.svg" alt="FPO Product Name" className="w-full h-auto object-contain mb-4" />
-          <h3 className="font-semibold text-lg mb-2">FPO Product Name</h3>
-          <p className="text-sm text-gray-300 mb-6">Product spec, information, and details go here</p>
-          <a href="#" className="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-6 rounded-lg inline-block">
-            Send Enquiry
-          </a>
+  const toggleDialog = (index: number) => {
+    setDialogStates((prevStates) =>
+      prevStates.map((state, i) => (i === index ? !state : state))
+    );
+  };
+
+  const renderCard = (card: (typeof cardsData)[0], index: number) => (
+    <div className="bg-[#0a1929] p-3 sm:p-4 md:p-5 rounded-lg shadow-md w-full flex flex-col justify-around">
+      <img
+        src={card.imageSrc}
+        alt={card.title}
+        className="w-full h-40 sm:h-52 md:h-64 object-cover mb-3 sm:mb-4 rounded"
+      />
+      <h3 className="font-semibold text-sm sm:text-base md:text-lg mb-2 sm:mb-3">
+        {card.title}
+      </h3>
+      <p className="text-xs sm:text-sm md:text-base text-gray-300 mb-3 sm:mb-4 md:mb-5">
+        {card.description}
+      </p>
+      <DialogForm
+        isDialogOpen={dialogStates[index]}
+        toggleDialog={() => toggleDialog(index)}
+        buttonText={card.buttonText}
+        dialogTitle="Send Enquiry"
+        buttonClassNames="w-full py-2 px-3 text-xs sm:text-sm md:text-base self-end"
+        section={card.formSection}
+      />
+    </div>
+  );
+
+  return (
+    <section className="bg-[#010b1a] py-4 sm:py-8 md:py-12 text-white">
+      <div className="container mx-auto px-2 sm:px-4 md:px-6 lg:px-8">
+        <div className="text-center mb-4 sm:mb-6 md:mb-8">
+          <p className="text-sm sm:text-base md:text-lg lg:text-xl max-w-3xl mx-auto">
+            To break new ground, you need ground-breaking devices. Windows 11
+            Pro devices can accelerate workflows and collaboration 50% on
+            average. With experiences that elevate the potential of everyone on
+            your team.
+          </p>
         </div>
-        <div className="p-6 max-w-xs text-start">
-          <img src="/sixth_card.svg" alt="FPO Product Name" className="w-full h-auto object-contain mb-4" />
-          <h3 className="font-semibold text-lg mb-2">FPO Product Name</h3>
-          <p className="text-sm text-gray-300 mb-6">Product spec, information, and details go here</p>
-          <a href="#" className="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-6 rounded-lg inline-block">
-            Send Enquiry
-          </a>
-        </div>
-        <div className="p-6 max-w-xs text-start">
-          <img src="/sixth_card.svg" alt="FPO Product Name" className="w-full h-auto object-contain mb-4" />
-          <h3 className="font-semibold text-lg mb-2">FPO Product Name</h3>
-          <p className="text-sm text-gray-300 mb-6">Product spec, information, and details go here</p>
-          <a href="#" className="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-6 rounded-lg inline-block">
-            Send Enquiry
-          </a>
-        </div>
+
+        {isMobile ? (
+          <div className="w-full overflow-hidden">
+            <div className="embla" ref={emblaRef}>
+              <div className="embla__container flex -mx-2">
+                {cardsData.map((card, index) => (
+                  <div key={index} className="embla__slide flex-[0_0_80%] px-2">
+                    {renderCard(card, index)}
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        ) : (
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4 md:gap-6">
+            {cardsData.map((card, index) => (
+              <React.Fragment key={index}>
+                {renderCard(card, index)}
+              </React.Fragment>
+            ))}
+          </div>
+        )}
       </div>
     </section>
   );
