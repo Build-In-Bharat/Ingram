@@ -2,6 +2,17 @@
 @tailwind components;
 @tailwind utilities;
 
+@font-face {
+  font-family: 'Segoe UI';
+  src: url('/fonts/SegoeUI.ttf');
+  font-weight: normal;
+  font-style: normal;
+}
+body {
+  font-family: 'Segoe UI', sans-serif;
+}
+
+
 @layer utilities {
   .text-balance {
     text-wrap: balance;
@@ -52,13 +63,6 @@
 /* For custom Scrollbar */
 /* Define CSS variables for light and dark themes */
 :root {
-  --scrollbar-bg: #f0f0f0;
-  --scrollbar-thumb: #888;
-  --scrollbar-thumb-hover: #555;
-}
-
-/* Dark theme adjustments */
-[data-theme="dark"] {
   --scrollbar-bg: #2b2b2b;
   --scrollbar-thumb: #555;
   --scrollbar-thumb-hover: #888;
