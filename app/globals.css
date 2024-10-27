@@ -4,11 +4,12 @@
 
 @font-face {
   font-family: 'Segoe UI';
-  src: url('/fonts/SegoeUI.ttf');
+  src: url('/public/fonts/segoe-ui.ttf') format('truetype');
   font-weight: normal;
   font-style: normal;
 }
-body {
+
+* {
   font-family: 'Segoe UI', sans-serif;
 }
 
