@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import { Button } from "@/components/ui/button";
 import { Checkbox } from "@/components/ui/checkbox";
 import {
@@ -109,7 +109,6 @@ export const DialogForm: React.FC<DialogFormProps> = ({
         formattedData
       );
 
-
       // Check if the response status is not 2xx
       if (response.status < 200 || response.status >= 300) {
         throw new Error("Form submission failed");
@@ -117,16 +116,22 @@ export const DialogForm: React.FC<DialogFormProps> = ({
         console.log("Form submitted successfully");
         let pdfUrl = "";
         if (section === "AI-section") {
-          pdfUrl = "https://redingtoningram.s3.eu-north-1.amazonaws.com/wetransfer_probu_ebook_en-us_partner_redington-pdf_2024-09-26_1010/PROBU_ebook_EN-US_Partner_Ingram.pdf";
+          pdfUrl =
+            "https://redingtoningram.s3.eu-north-1.amazonaws.com/wetransfer_probu_ebook_en-us_partner_redington-pdf_2024-09-26_1010/PROBU_ebook_EN-US_Partner_Ingram.pdf";
         } else if (section === "work-magic") {
-          pdfUrl = "https://redingtoningram.s3.eu-north-1.amazonaws.com/wetransfer_probu_ebook_en-us_partner_redington-pdf_2024-09-26_1010/Win11_Pro_M365_WorkMagic_FY24_Q2_WW_EN_Infographic_WorkMagic_Ingram.pdf";
+          pdfUrl =
+            "https://redingtoningram.s3.eu-north-1.amazonaws.com/wetransfer_probu_ebook_en-us_partner_redington-pdf_2024-09-26_1010/Win11_Pro_M365_WorkMagic_FY24_Q2_WW_EN_Infographic_WorkMagic_Ingram.pdf";
         } else if (section === "last-section") {
-          pdfUrl = "https://redingtoningram.s3.eu-north-1.amazonaws.com/wetransfer_probu_ebook_en-us_partner_redington-pdf_2024-09-26_1010/WINCOMPOM_CaseStudy_EN-US_Partner_Ingram.pdf";
+          pdfUrl =
+            "https://redingtoningram.s3.eu-north-1.amazonaws.com/wetransfer_probu_ebook_en-us_partner_redington-pdf_2024-09-26_1010/WINCOMPOM_CaseStudy_EN-US_Partner_Ingram.pdf";
+        } else if (section === "download-guide") {
+          pdfUrl =
+            "https://redingtoningram.s3.eu-north-1.amazonaws.com/Windows+10+EOS_Infographic+(5).pdf";
         }
 
         if (pdfUrl) {
           // Open PDF in a new tab
-          window.open(pdfUrl, '_blank');
+          window.open(pdfUrl, "_blank");
         }
       }
 
@@ -180,7 +185,11 @@ export const DialogForm: React.FC<DialogFormProps> = ({
           </DialogHeader>
           <ScrollArea className="max-h-[80vh]">
             <form className="p-4" onSubmit={handleSubmit(onSubmit)}>
-              <input type="hidden" {...register("section")} value={buttonText} />
+              <input
+                type="hidden"
+                {...register("section")}
+                value={buttonText}
+              />
               <div className="mb-4">
                 <label className="block text-sm font-medium text-white">
                   Name
@@ -351,7 +360,9 @@ export const DialogForm: React.FC<DialogFormProps> = ({
                   products and services
                 </label>
                 {errors.consent && (
-                  <p className="text-red-500">{String(errors.consent.message)}</p>
+                  <p className="text-red-500">
+                    {String(errors.consent.message)}
+                  </p>
                 )}
               </div>
               <button
